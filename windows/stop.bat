@@ -1,0 +1,1 @@
+docker stop ckpool-solo

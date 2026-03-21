@@ -1,0 +1,11 @@
+/.git
+node_modules
+*.log
+build
+dist
+Dockerfile.*
+README.md
+*.md
+/.idea
+/.vscode
+*.swp

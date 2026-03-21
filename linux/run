@@ -1,0 +1,9 @@
+docker run -d \
+  --name ckpool-solo \
+  -v "../ckpool.conf":/etc/ckpool/ckpool.conf:ro \
+  -p 3333:3333 \
+  -p 3433:3433 \
+  -p 4334:4334 \
+  --restart always \
+  --tmpfs /tmp \
+  pdath/ckpool-solo
