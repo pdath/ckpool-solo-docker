@@ -1,25 +1,31 @@
-# ckpool-solo Docker image (runtime-build with CPU-specific optimizations)
+# ckpool-solo Docker image with CPU optimisations for Intel and ARM
 
-How is this Docker container of ckpool-solo different from all of the others?
+How is this Docker image of ckpool-solo different from all of the others?
 
 ckpool has many assembly-language optimisations. To use these, you must build
-ckpool on the CPU on which it will be running. This Docker container breaks all
+ckpool on the CPU on which it will be running. This Docker image breaks all
 the rules and does exactly that - builds ckpool inside the container so that
 it can use all the assembly language optimisations.
 
-Most other ckpool Docker containers turn off all assembly-language high-performance optimisations so that the container they create can run on all CPUs.
+Most other ckpool Docker images turn off all assembly-language high-performance optimisations so that the image they create can run on all CPUs.
 
-This container will run on both Intel and ARM CPUs.
+This image will run on both Intel and ARM CPUs.
 
-Every time you start the Docker container:
-* Downloads any GitHub updates and automatically compiles the new version.
+Every time you start the Docker container it:
+* Downloads any GitHub updates (if any) and automatically compiles the new version.
 * Rotates the log file (/var/log/ckpool/ckpool.log).
 
-This container was designed to be used by:
-https://github.com/pdath/knots-ckpool-solo-ckstats-quick-start
-There is also a video guide and installation article here:
-https://youtu.be/MbCZpps7Ijs
-https://pdath.substack.com/p/quick-start-guide-to-solo-mine-bitcoin
+## Links
+
+The GitHub for this image is:<br>
+[https://github.com/pdath/ckpool-solo-docker](https://github.com/pdath/ckpool-solo-docker).<br>
+The Docker hub image is:<br>
+[https://hub.docker.com/repository/docker/pdath/ckpool-solo](https://hub.docker.com/repository/docker/pdath/ckpool-solo)<br>
+This image was designed to be used by:<br>
+[https://github.com/pdath/knots-ckpool-solo-ckstats-quick-start](https://github.com/pdath/knots-ckpool-solo-ckstats-quick-start)<br>
+There is also a video guide and installation article here:<br>
+[https://youtu.be/MbCZpps7Ijs](https://youtu.be/MbCZpps7Ijs)<br>
+[https://pdath.substack.com/p/quick-start-guide-to-solo-mine-bitcoin](https://pdath.substack.com/p/quick-start-guide-to-solo-mine-bitcoin)<br>
 
 ## ckpool.conf
 
@@ -29,18 +35,18 @@ Edit ckpool.conf before running.
 * Change btcsig to be the text you would like to appear (up to 38 bytes) in the coinbase transaction, should you solve a block.
 
 ## Usage (Linux):
-First time start (done once only): ./run
-To start: ./start
-To stop: ./stop
-To delete: ./remove
-To build: ./build
+* First time start (done once only): ./run
+* To start: ./start
+* To stop: ./stop
+* To delete: ./remove
+* To build: ./build
 
 ## Usage (Windows):
-First time start (done once only): .\run.bat
-To start: .\start.bat
-To stop: .\stop.bat
-To delete: .\remove.bat
-To build: .\build.bat
+* First time start (done once only): .\run.bat
+* To start: .\start.bat
+* To stop: .\stop.bat
+* To delete: .\remove.bat
+* To build: .\build.bat
 
 You can monitor the logs with:
 docker logs -f ckpool-solo
